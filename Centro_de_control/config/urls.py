@@ -17,9 +17,11 @@ from rest_framework import routers
 from django.contrib import admin
 from django.urls import include, path
 from users.urls import router as user_router
+from entries.urls import router as entry_router
 
 router = routers.DefaultRouter()
 router.registry.extend(user_router.registry)
+router.registry.extend(entry_router.registry)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
