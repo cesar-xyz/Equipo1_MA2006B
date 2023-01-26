@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     "rest_framework",
     # Local apps
     "users",
+    "entries",
 ]
 
 ROOT_URLCONF = "config.urls"
