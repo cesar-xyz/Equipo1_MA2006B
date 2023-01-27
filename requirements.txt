@@ -3,3 +3,5 @@ numpy <= 1.22.3
 pandas <= 1.4.3
 django-paranoid-model==1.0.7
 rest_framework
+DjangoHexadecimalField==0.0.3
+django-extensions==3.2.1

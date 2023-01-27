@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Apps,
     "users",
     "entries",
+    "public_keys",
 ]
 
 MIDDLEWARE = [
