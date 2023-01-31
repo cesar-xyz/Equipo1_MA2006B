@@ -21,4 +21,4 @@ class PublicKey(Paranoid):
         verbose_name_plural = _("public keys")
 
     def __str__(self):
-        return "Not Available"
+        return f"{self.pk}: {self.key}"
