@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-0s^z006(3o4%57#@zk27x9o#i)uvd4ab6rc1v%kd2vvdcc%%po
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.22.200.20", "10.22.207.160", "0.0.0.0", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["10.22.200.20", "10.22.207.160", "192.168.137.1", "0.0.0.0", "127.0.0.1", "localhost"]
 RUNSERVERPLUS_SERVER_ADDRESS_PORT = '0.0.0.0:8000'
 
 # Application definition
