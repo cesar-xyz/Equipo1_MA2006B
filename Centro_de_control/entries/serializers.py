@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from entries.models import Entry
+from .models import Entry
 
 
 class EntrySerializer(serializers.ModelSerializer):

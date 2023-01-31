@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from rest_framework import permissions
-from entries.serializers import EntrySerializer
+from .serializers import EntrySerializer
 
-from entries.models import Entry
+from .models import Entry
 
 
 class EntryViewSet(viewsets.ModelViewSet):
