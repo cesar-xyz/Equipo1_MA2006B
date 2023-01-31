@@ -1,2 +1,10 @@
 *__pycache__
 *.sqlite3
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
