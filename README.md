@@ -1,6 +1,6 @@
 <div align="center">
 
-### Implementación de criptografía de clave pública para protección de comunicaciones con IoT en entornos de monitoreo y consumo de energía.
+# Implementación de criptografía de clave pública para protección de comunicaciones con IoT en entornos de monitoreo y consumo de energía.
 
 Eugenio Andrade Lozano - A01721296,
 César Guillermo Vázquez Alvarez - A01197857,
