@@ -40,9 +40,24 @@ En este sistema se utilizaron solamente librerias y software de uso público, a 
 Numpy es una librería de Python para el cálculo numérico y el análisis de datos. Pandas sirve para el manejo y análisis de estructuras de datos. Pyplot es un módulo Matplotlib que propone varias funciones sencillas para añadir elementos tales como líneas, imágenes o textos a los ejes de un gráfico. Datetime es una librería la cual permite el manejo y manipulación de fechas y horas. Hashlib nos sirve para hashear como bien el mismo nombre nos puede dar una idea, gracias al importar socket en Python podemos generar un enlace entre 2 aplicaciones para que de esta manera tengan comunicación. Time, no es lo mismo que datetime, la librería time nos sirve para retornar el valor en fracciones de la suma del sistema y el tiempo de CPU del usuario del proceso actual. Ahora, vamos a hablar de Django que es una de la librerías que más destacan dentro de este servicio, Django nos sirve para construir cualquier tipo de sitio web de manera eficiente, por otro lado, tenemos Json el cual es una librería que sirve para transferir información a través de la web y para almacenar ajustes y configuración, este, de igual forma es un formato ligero de intercambio de datos. La librería pathlib, sirve para las clases que representan rutas del sistema de archivos con semántica apropiada para diferentes sistemas operativos. Por último tenemos Os, que es una librería que provee una manera versátil de usar funcionalidades dependientes del sistema operativo.
 
 
-## Pruebas
+## Instalación, compatibilidad y dependencias
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lobortis justo. Integer bibendum ex nec metus congue, et venenatis turpis laoreet. Proin rutrum, mauris in varius rutrum, ante nunc auctor ex, ac sagittis leo orci at lectus. Nunc laoreet lacinia orci eget fermentum. Nunc eu sollicitudin neque. Nullam sed turpis finibus, laoreet sem id, semper lectus. Aenean mauris sem, egestas eu ex sed, blandit rhoncus enim. Quisque velit tortor, rhoncus quis nibh sed, sollicitudin rhoncus erat. Praesent at purus nec erat rhoncus pellentesque sit amet at magna. Integer vel aliquet felis. Cras imperdiet sapien id enim pulvinar tincidunt. Quisque metus sem, condimentum eget sollicitudin ut, porta sed ante. Sed molestie lacus sit amet euismod lobortis. Maecenas congue imperdiet interdum. 
+Para poder utilizar este servicio de encriptación mediante curvas elípticas, se instaló Python 3 el cual es el lenguaje de programación con el que se trabajó este proyecto, Python 3 es de uso público así es que es muy probable que no se tenga ningún problema en descargarlo ni en utilizarlo, de igual manera se utilizaron librerías de uso libre las cuales son; 
+
+1. Numpy importamos a np 1.16.0 a 1.24.0
+2. Pandas importamos a pd 1.3.0. a 1.5.3
+3. Matplotlib.pylot importamos a plt 3.0 a 3.6
+4. datetime (versión viene por default)
+5. hashlib importamos sha256 1.5 a 1.5.2
+6. Socket 3.3 a 3.7 
+7. Time (Default)
+8. Json 1.1.1 a 1.6.3
+9. Django importamos get_asgi_application, admin, include, path 3.1 a 4.1 
+10. Pathlib importamos Path 0.6 a 1.0.1
+
+El funcionamiento de cada librería viene explicado en el apartado anterior “Licencias”, de igual forma vienen las versiones de cada una de estas librerías con un rango de versiones anteriores a versiones mas nuevas que tienen compatibilidad con este servicio de encriptación 
+Es necesario que al descargar estas librerías la computadora que se esté utilizando estén conectadas a internet para poder importarlas dentro de Python, así mismo, para poder utilizar este servicio se necesita una buena conexión a internet ya que de esta manera es como se están mandando los archivos encriptados del centro de control hacia los auditores. 
+Para la instalación de las Raspberry, es necesario meter las trazas a estas para que de esta forma se pueda compartir la información de los auditores a el centro de control, cabe recalcar que las trazas (base de datos) tuvo un pre procesamiento antes de meterlas a las Raspberry para darles el formato correcto para el envío de información y se añaden al utilizar Python dentro de las Raspberry.
 
 
 
