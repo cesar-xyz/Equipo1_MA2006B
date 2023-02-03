@@ -23,7 +23,21 @@ Primero vamos a analizar la topología con la que estamos trabajando, tenemos 2 
 
 ## Licencias
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lobortis justo. Integer bibendum ex nec metus congue, et venenatis turpis laoreet. Proin rutrum, mauris in varius rutrum, ante nunc auctor ex, ac sagittis leo orci at lectus. Nunc laoreet lacinia orci eget fermentum. Nunc eu sollicitudin neque. Nullam sed turpis finibus, laoreet sem id, semper lectus. Aenean mauris sem, egestas eu ex sed, blandit rhoncus enim. Quisque velit tortor, rhoncus quis nibh sed, sollicitudin rhoncus erat. Praesent at purus nec erat rhoncus pellentesque sit amet at magna. Integer vel aliquet felis. Cras imperdiet sapien id enim pulvinar tincidunt. Quisque metus sem, condimentum eget sollicitudin ut, porta sed ante. Sed molestie lacus sit amet euismod lobortis. Maecenas congue imperdiet interdum. 
+En este sistema se utilizaron solamente librerias y software de uso público, a pesar de que sean de uso público se sabe que las librerías y el software utilizado tienen un excelente uso y entregan excelentes resultados, es por eso, que decidimos utilizarlos para la elaboración de este servicio de encriptamiento mediante curva elíptica;
+1. Python 3 
+2. Numpy 1.21.5
+3. Pandas 1.4.1
+4. matplotlib.pylot 3.4 
+5. datetime 
+6. hashlib 1.5
+7. Socket 3.3
+8. Time (Default)
+9. Json 1.6.2
+10. Django 4.0
+11. Pathlib 1.0 
+12. Os
+Numpy es una librería de Python para el cálculo numérico y el análisis de datos. Pandas sirve para el manejo y análisis de estructuras de datos. Pyplot es un módulo Matplotlib que propone varias funciones sencillas para añadir elementos tales como líneas, imágenes o textos a los ejes de un gráfico. Datetime es una librería la cual permite el manejo y manipulación de fechas y horas. Hashlib nos sirve para hashear como bien el mismo nombre nos puede dar una idea, gracias al importar socket en Python podemos generar un enlace entre 2 aplicaciones para que de esta manera tengan comunicación. Time, no es lo mismo que datetime, la librería time nos sirve para retornar el valor en fracciones de la suma del sistema y el tiempo de CPU del usuario del proceso actual. Ahora, vamos a hablar de Django que es una de la librerías que más destacan dentro de este servicio, Django nos sirve para construir cualquier tipo de sitio web de manera eficiente, por otro lado, tenemos Json el cual es una librería que sirve para transferir información a través de la web y para almacenar ajustes y configuración, este, de igual forma es un formato ligero de intercambio de datos. La librería pathlib, sirve para las clases que representan rutas del sistema de archivos con semántica apropiada para diferentes sistemas operativos. Por último tenemos Os, que es una librería que provee una manera versátil de usar funcionalidades dependientes del sistema operativo.
+
 
 ## Pruebas
 
