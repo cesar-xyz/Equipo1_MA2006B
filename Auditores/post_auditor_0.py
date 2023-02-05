@@ -4,6 +4,7 @@ import time
 import pandas as pd
 import requests
 import json
+from ecdsa import SigningKey, VerifyingKey, NIST256p
 
 '''s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 8000))
@@ -19,12 +20,44 @@ headers = {
 
 auth = ('admin@cocoa.com', '1234')
 
+def hash_dict(d):
+    hash_string = ""
+    for key, value in sorted(d.items()):
+        hash_string += str(key) + str(value)
+    return hashlib.sha256(hash_string.encode()).hexdigest()
+
+# creando las llaves de firmado
+sk = SigningKey.generate(curve=NIST256p)
+# private key
+signing_key_hex_string = sk.to_string().hex()
+# public key
+verifying_key_hex_string = sk.verifying_key.to_string().hex()
+
+# LINEAS DE CODIGO PARA VERIFICAR LAS FIRMAS
+''' 
+verifyingkey = VerifyingKey.from_string(bytearray.fromhex(verifying_key_hex_string), curve=NIST256p)
+signature = bytearray.fromhex(signature_hex_string)
+print('Verify transmited data', verifyingkey.verify(signature, hashed.encode('utf-8')))
+'''
+
 df0 = pd.read_csv("../Archivos_trazas/auditor0.csv")
 for i in range(10):
     df0.loc[i, 'mac_emisor'] = mac
     payload = df0.iloc[i].to_json()
     jpayload = json.loads(payload)
-    response = requests.post(url, json=jpayload, headers=headers, auth=auth, verify=False)
+    hashed = hash_dict(jpayload)
+
+    # creando la firma
+    sk = SigningKey.from_string(bytearray.fromhex(signing_key_hex_string), curve=NIST256p)
+    signature = sk.sign(hashed.encode('utf-8'))
+    signature_hex_string = signature.hex()
+
+    # payload final (incluye la firma)
+    df0.loc[i, 'signature'] = signature_hex_string
+    new_payload = df0.iloc[i].to_json()
+    new_jpayload = json.loads(new_payload)
+
+    response = requests.post(url, json=new_jpayload, headers=headers, auth=auth, verify=False)
     print(response.status_code)
     print(response.text)
     time.sleep(.15)
