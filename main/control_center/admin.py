@@ -5,5 +5,5 @@ from .models import ControlCenter
 
 @admin.register(ControlCenter)
 class ControlCenterAdmin(admin.ModelAdmin):
-    list_display = ()
-    search_fields = ()
+    list_display = ("name", "domain")
+    search_fields = ("name", "domain")

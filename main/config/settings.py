@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "public_keys",
     "auditors",
     "control_center",
+    "certificates",
 ]
 
 MIDDLEWARE = [

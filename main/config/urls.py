@@ -21,6 +21,7 @@ from entries.urls import router as entry_router
 from public_keys.urls import router as public_keys_router
 from auditors.urls import router as auditors_router
 from control_center.urls import router as control_center_router
+from certificates.urls import router as certificates_router
 
 router = routers.DefaultRouter()
 router.registry.extend(user_router.registry)
@@ -28,6 +29,7 @@ router.registry.extend(entry_router.registry)
 router.registry.extend(public_keys_router.registry)
 router.registry.extend(auditors_router.registry)
 router.registry.extend(control_center_router.registry)
+router.registry.extend(certificates_router.registry)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
