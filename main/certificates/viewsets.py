@@ -1,11 +1,16 @@
-from rest_framework import viewsets
 from rest_framework import permissions
-from .serializers import CertificateSerializer
+from rest_framework import viewsets
 
 from .models import Certificate
+from .serializers import CertificateSerializer
 
 
 class CertificateViewSet(viewsets.ModelViewSet):
-    queryset = Certificate.objects.all().order_by("-created_at")
+    queryset = Certificate.objects.all()
     serializer_class = CertificateSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        certificates = super().get_queryset()
+        certificates = [certificate for certificate in certificates if certificate.check_expiry()]
+        return certificates

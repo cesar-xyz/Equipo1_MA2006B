@@ -6,6 +6,6 @@ from .models import Auditor
 
 
 class AuditorViewset(viewsets.ModelViewSet):
-    queryset = Auditor.objects.all().order_by("-created_at")
+    queryset = Auditor.objects.all()
     serializer_class = AuditorSerializer
     permission_classes = [permissions.IsAuthenticated]

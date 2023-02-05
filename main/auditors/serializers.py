@@ -5,4 +5,4 @@ from .models import Auditor
 class AuditorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Auditor
-        exclude = ["is_authorized"]
+        fields = "__all__"

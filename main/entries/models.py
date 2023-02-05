@@ -4,13 +4,13 @@ from paranoid_model.models import Paranoid
 
 
 class Entry(Paranoid):
-    auditor = models.CharField(_("auditor"), max_length=128, blank=True)
+    auditor = models.CharField(_("auditor"), max_length=128, blank=True, null=True)
     date = models.CharField(_("date"), max_length=64, blank=True)
     is_producing = models.BooleanField(_("is producing?"), blank=True, null=True)
     quantity = models.DecimalField(
         _("quantity"), decimal_places=2, max_digits=6, blank=True, null=True
     )
-    ip_emisor = models.CharField(_("ip_emisor"), max_length=64, blank=True, null=True)
+    mac_emisor = models.CharField(_("mac_emisor"), max_length=64, blank=True, null=True)
     ip_receptor = models.CharField(
         _("ip_receptor"), max_length=64, blank=True, null=True
     )

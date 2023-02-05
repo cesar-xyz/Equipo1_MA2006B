@@ -6,8 +6,6 @@ from paranoid_model.models import Paranoid
 class Auditor(Paranoid):
     name = models.CharField(_("name"), max_length=128)
     mac_address = models.CharField(_("mac address"), max_length=256)
-    is_authorized = models.BooleanField(default=False, editable=False)
-
     class Meta:
         verbose_name = _("auditor")
         verbose_name_plural = _("auditors")

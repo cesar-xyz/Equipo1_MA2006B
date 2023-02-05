@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 from paranoid_model.models import Paranoid
 
 
-class ControlCenter(Paranoid):
+class ControlCenter(models.Model):
     name = models.CharField(_("name"), max_length=256)
     domain = models.CharField(_("domain url"), max_length=512)
 

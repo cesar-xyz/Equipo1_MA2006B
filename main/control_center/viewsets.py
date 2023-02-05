@@ -6,6 +6,6 @@ from .models import ControlCenter
 
 
 class ControlCenterViewset(viewsets.ModelViewSet):
-    queryset = ControlCenter.objects.all().order_by("-created_at")
+    queryset = ControlCenter.objects.all()
     serializer_class = ControlCenterSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
