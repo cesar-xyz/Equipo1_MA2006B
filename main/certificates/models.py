@@ -34,7 +34,7 @@ class Certificate(models.Model):
         blank=True,
     )
     is_authorized = models.BooleanField(_("is_authorized"), default=True)
-    expiring_date = models.DateTimeField(default=datetime.now() + timedelta(minutes=3), editable=False)
+    expiring_date = models.DateTimeField(default=datetime.now(pytz.UTC) + timedelta(minutes=120), editable=False)
 
 
     def check_expiry(self):

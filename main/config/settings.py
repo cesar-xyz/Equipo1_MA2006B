@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_extensions",
     # Apps,
-    'main',
     "users",
     "entries",
     "public_keys",
