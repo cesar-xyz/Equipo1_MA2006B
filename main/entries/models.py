@@ -4,7 +4,14 @@ from paranoid_model.models import Paranoid
 
 
 class Entry(Paranoid):
-    auditor = models.CharField(_("auditor"), max_length=128, blank=True, null=True)
+    auditor = models.ForeignKey(
+        "auditors.Auditor",
+        verbose_name=_("auditor"),
+        related_name="auditors",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+    )
     date = models.CharField(_("date"), max_length=64, blank=True)
     is_producing = models.BooleanField(_("is producing?"), blank=True, null=True)
     quantity = models.DecimalField(

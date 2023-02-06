@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "auditors",
     "control_center",
     "certificates",
+    'output',
 ]
 
 MIDDLEWARE = [
