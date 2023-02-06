@@ -59,8 +59,32 @@ El funcionamiento de cada librería viene explicado en el apartado anterior “L
 Es necesario que al descargar estas librerías la computadora que se esté utilizando estén conectadas a internet para poder importarlas dentro de Python, así mismo, para poder utilizar este servicio se necesita una buena conexión a internet ya que de esta manera es como se están mandando los archivos encriptados del centro de control hacia los auditores. 
 Para la instalación de las Raspberry, es necesario meter las trazas a estas para que de esta forma se pueda compartir la información de los auditores a el centro de control, cabe recalcar que las trazas (base de datos) tuvo un pre procesamiento antes de meterlas a las Raspberry para darles el formato correcto para el envío de información y se añaden al utilizar Python dentro de las Raspberry.
 
+## Documentación de la Arquitectura del Código
 
+Dentro del código se encuentran diferentes archivos y carpetas que de manera unida forman el API y la arquitectura que se decidió hacer. En la parte principal se encuentra la carpeta "Archivos_trazas", donde se encuentran los archivos csv que se utilizaron para hacer pruebas y saber como se envía la información. También, esta la carpeta Auditores, donde dentro está el código que se encarga de mandar las solicitudes a la API, verificar y tomar la acción correspondiente con base en esto, ya sea guardar la información o no aceptarla. La carpeta "Exploracion" contiene los archivos que se utilizaron para entender mejor la información que se va a recibir, incluye gráficas y pruebas JSON, hashing y de ECDSA. Los archivos .gitignore, README.md y requirements.txt son archivos que ayudan a facilitar y hacer los archivos más limpios. El archivo .gitignore incluye todos los tipos de archivos que se no se busca guardar, por ejemplo la base de datos local, el archivo README.md es justo el archivo donde toda esta información se está mostrando, finalmente el requirements.txt guarda todas las librerias que se tienen que instalar para que el código se pueda correr. Finalmente, la carpeta más importante es la de "main", aquí se encuentran todos los modelos y la comunicación entre ellos. Cada carpeta representa un modelo específico y todos tienen los mismos archivos. Los archivos son:
 
+- **Carpeta “migrations”**: Contiene las migraciones (cambios en los modelos) que se han hecho, esto ayuda a que la base de datos cambie al mismo tiempo que se cambian los modelos.
+- **__init__**.py: Permite guardar la información dentro de la carpeta para importarla como si fuera un paquete de python.
+- **admin.py**: Registra el modelo en el sitio del administrador junto con la información que se quiere mostrar.
+- **models.py**: Están los modelos (tablas) que se están creando. Incluye los campos del modelo y su representación como texto.
+- **serializers.py**: Se encarga de convertir la información que se recibe (en formato JSON) a el formato que usa Django y vice versa. Esto para poder guardar la información en la base de datos y si se busca visualizarla que también se pueda.
+- **viewsets.py**: Se encarga de permitir hacer las solicitudes, las más comunes siendo POST para crear información, GET para obtener información, PUT o PATCH para actualizar información y DELETE para borrar. Dentro también incluye los permisos para las acciones.
+- **urls.py**: Contiene los urls que se van a agregar de su respectivo modelo para poder mandar la solicitud.
+
+Modelos:
+* auditors (Auditores)
+* certificates (Certificados)
+* control_center (Centro de Control)
+* entries (Entradas)
+* output (Salida o Respuesta)
+* public_keys (Llave Pública)
+* users (Usuarios)
+
+## Comandos para Correr Servidor
+
+1. pip install -r requirements.txt
+2. python3 manage.py migrate
+3. python3 manage.py runserver
 
 
 
