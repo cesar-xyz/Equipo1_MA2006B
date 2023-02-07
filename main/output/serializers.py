@@ -12,5 +12,3 @@ class OutputSerializer(serializers.ModelSerializer):
         # Especificamos todos los campos que queremos incluir en la representación serializada
         fields = "__all__"
 
-        # Especificamos los campos que deben estar en modo solo lectura
-        read_only_fields = ['auditor']

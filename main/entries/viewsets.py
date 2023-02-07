@@ -53,7 +53,7 @@ class EntryViewSet(viewsets.ModelViewSet):
         try:
             print('Verify transmited data', verifyingkey.verify(signature, hashed.encode('utf-8')))
         except:
-            print("Verificación correcta")
+            print(" ")
 
         # Comprobar si existe un certificado asociado al auditor
         if certificate:

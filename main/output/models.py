@@ -14,8 +14,8 @@ class Output(models.Model):
     # Campo de tipo ForeignKey a la tabla "auditors.Auditor", con nombre de la relación "out_auditor"
     auditor = models.OneToOneField(
         "auditors.Auditor",
-        verbose_name=_("out_auditor"),
-        related_name="out_auditors",
+        verbose_name=_("auditor"),
+        related_name="auditors",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
