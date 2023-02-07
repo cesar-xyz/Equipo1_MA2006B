@@ -29,11 +29,11 @@ mac = gma()
 ip_receptor = "127.0.0.1"
 
 # urls del CCpost_auditor_1.py
-url_entries = f"http://{ip_receptor}:8000/api/v1/entries/"
-url_certificates = f"http://{ip_receptor}:8000/api/v1/certificates/"
-url_public_keys = f"http://{ip_receptor}:8000/api/v1/public_keys/"
-url_auditors = f"http://{ip_receptor}:8000/api/v1/auditors/"
-url_outputs = f"http://{ip_receptor}:8000/api/v1/out_auditors/"
+url_entries = f"https://{ip_receptor}:8000/api/v1/entries/"
+url_certificates = f"https://{ip_receptor}:8000/api/v1/certificates/"
+url_public_keys = f"https://{ip_receptor}:8000/api/v1/public_keys/"
+url_auditors = f"https://{ip_receptor}:8000/api/v1/auditors/"
+url_outputs = f"https://{ip_receptor}:8000/api/v1/out_auditors/"
 
 headers = {
     'Content-Type': 'application/json'
