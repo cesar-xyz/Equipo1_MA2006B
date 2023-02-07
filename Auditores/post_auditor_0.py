@@ -68,7 +68,7 @@ if response_certificates.status_code == 200:
                 verifying_key_hex_string = data['public_key']['public_key']
                 break
             else:
-                print("Auditor not found.")
+                print(" ")
         except:
             print("Name key not found in auditor dictionary.")
 
@@ -116,8 +116,6 @@ if response_certificates.status_code == 200:
                         print("Disconnect")
                     else:
                         print("Message null")
-                else:
-                    print("Message not found.")
             except:
                 print("Name key not found in auditor dictionary.")
 
