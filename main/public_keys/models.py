@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext as _
 from django_extensions.validators import HexValidator
+# Importar la biblioteca Paranoid
+from paranoid_model.models import Paranoid
+
 
 # Importar la clase HexValidator para validar los datos del campo hexadecimal
 
@@ -9,6 +12,7 @@ class HexadecimalField(models.CharField):
     def __init__(self, *args, **kwargs):
         # Llamar al constructor de la clase padre
         super(HexadecimalField, self).__init__(*args, **kwargs)
+
 
 # Se crea un modelo llamado PublicKey que hereda de Paranoid
 class PublicKey(Paranoid):
