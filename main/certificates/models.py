@@ -39,7 +39,7 @@ class Certificate(models.Model):
 
     def check_expiry(self):
         now = datetime.now(pytz.UTC)
-        if self.expiring_date is not None and now >= self.expiring_date:
+        if (self.expiring_date is not None and now >= self.expiring_date) or not self.is_authorized:
             self.is_authorized = False
             self.save()
             return False
