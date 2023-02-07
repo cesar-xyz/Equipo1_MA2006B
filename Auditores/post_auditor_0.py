@@ -25,6 +25,7 @@ url_entries = "http://127.0.0.1:8000/api/v1/entries/"
 url_certificates = "http://127.0.0.1:8000/api/v1/certificates/"
 url_public_keys = "http://127.0.0.1:8000/api/v1/public_keys/"
 url_auditors = "http://127.0.0.1:8000/api/v1/auditors/"
+url_outputs = "http://127.0.0.1:8000/api/v1/out_auditors/"
 
 headers = {
     'Content-Type': 'application/json'
@@ -34,6 +35,7 @@ headers = {
 auth = ('admin@cocoa.com', '1234')
 
 response_certificates = requests.get(url_certificates, auth=auth, verify=False)
+response_output = requests.get(url_outputs, auth=auth, verify=False)
 
 auditor_name = "Auditor 0"
 auditor_pk = 0
@@ -92,6 +94,24 @@ if response_certificates.status_code == 200:
     df0 = pd.read_csv("../Archivos_trazas/auditor0.csv")
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     for i in range(10):
+
+        json_output = response_output.json()
+        for data in json_output:
+            try:
+                if data["auditor"] == auditor_pk:
+                    if data["message"] == '1':
+                        print("Upload")
+                    elif data["message"] == '2':
+                        print("Shutdown")
+                    elif data["message"] == '3':
+                        print("Disconnect")
+                    else:
+                        print("Message null")
+                else:
+                    print("Message not found.")
+            except:
+                print("Name key not found in auditor dictionary.")
+
         # agregado de la direccion MAC a la base de datos
         df0.loc[i, 'mac_emisor'] = mac
         # convirtiendo a objeto JSON cada entrada
@@ -114,6 +134,5 @@ if response_certificates.status_code == 200:
         # enviar la informacion al CC
         response = requests.post(url_entries, json=new_jpayload, headers=headers, auth=auth, verify=False)
         print(response.status_code)
-        print(response.text)
         # separacion de tiempo de 0.15 segundos para no saturar el sistema
         time.sleep(.15)

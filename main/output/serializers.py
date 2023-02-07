@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Output
 
 
@@ -12,5 +13,4 @@ class OutputSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
         # Especificamos los campos que deben estar en modo solo lectura
-        read_only_fields = 'out_auditor'
-
+        read_only_fields = ['auditor']

@@ -7,6 +7,6 @@ from .models import Output
 @admin.register(Output)
 class OutputAdmin(admin.ModelAdmin):
     # Especificamos los campos que se mostrarán en la lista de objetos de salida
-    list_display = ['out_auditor', 'message', 'received']
+    list_display = ['auditor', 'message']
     # Especificamos los campos que se usarán para la búsqueda
-    search_fields = ['out_auditor', 'message', 'received']
+    search_fields = ['out_auditor', 'message']
