@@ -43,7 +43,6 @@ headers = {
 auth = ('admin@cocoa.com', '1234')
 
 response_certificates = requests.get(url_certificates, auth=auth, verify=False)
-response_output = requests.get(url_outputs, auth=auth, verify=False)
 
 auditor_name = "Auditor 0"
 auditor_pk = 0
@@ -102,7 +101,7 @@ if response_certificates.status_code == 200:
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     df1 = df0
     for i in range(500):
-
+        response_output = requests.get(url_outputs, auth=auth, verify=False)
         json_output = response_output.json()
         for data in json_output:
             try:
