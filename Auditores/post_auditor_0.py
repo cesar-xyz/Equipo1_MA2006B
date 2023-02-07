@@ -4,6 +4,7 @@ import time
 import pandas as pd
 import requests
 import json
+import hashlib
 from ecdsa import SigningKey, VerifyingKey, NIST256p
 
 '''s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
