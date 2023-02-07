@@ -4,15 +4,15 @@ import json
 import time
 
 # Libreria de los pines de la raspberry
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import pandas as pd
 import requests
 from ecdsa import SigningKey, NIST256p
 from getmac import get_mac_address as gma
 
 LED_PIN = 11
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(LED_PIN, GPIO.OUT)
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(LED_PIN, GPIO.OUT)
 
 
 # funcion para hashear objetos
@@ -26,14 +26,14 @@ def hash_dict(d):
 # obtener direccion MAC
 mac = gma()
 
-ip_receptor = "192.168.100.28"
+ip_receptor = "127.0.0.1"
 
 # urls del CCpost_auditor_1.py
-url_entries = "https://192.168.100.28:8000/api/v1/entries/"
-url_certificates = "https://192.168.100.28:8000/api/v1/certificates/"
-url_public_keys = "https://192.168.100.28:8000/api/v1/public_keys/"
-url_auditors = "https://192.168.100.28:8000/api/v1/auditors/"
-url_outputs = "https://192.168.100.28:8000/api/v1/out_auditors/"
+url_entries = f"http://{ip_receptor}:8000/api/v1/entries/"
+url_certificates = f"http://{ip_receptor}:8000/api/v1/certificates/"
+url_public_keys = f"http://{ip_receptor}:8000/api/v1/public_keys/"
+url_auditors = f"http://{ip_receptor}:8000/api/v1/auditors/"
+url_outputs = f"http://{ip_receptor}:8000/api/v1/out_auditors/"
 
 headers = {
     'Content-Type': 'application/json'
@@ -101,17 +101,17 @@ if response_certificates.status_code == 200:
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     df1 = df0
     for i in range(500):
-        response_output = requests.get(url_outputs, auth=auth, verify=False)
+        response_output = requests.get(url_outputs, auth=auth, verify=False, params={"auditor": auditor_pk})
         json_output = response_output.json()
         for data in json_output:
             try:
                 if data["auditor"] == auditor_pk:
                     if data["message"] == '1':
                         print("Upload")
-                        GPIO.output(LED_PIN, GPIO.HIGH)
+                        #GPIO.output(LED_PIN, GPIO.HIGH)
                     elif data["message"] == '2':
                         print("Shutdown")
-                        GPIO.output(LED_PIN, GPIO.LOW)
+                        #GPIO.output(LED_PIN, GPIO.LOW)
                     elif data["message"] == '3':
                         print("Disconnect")
                     else:

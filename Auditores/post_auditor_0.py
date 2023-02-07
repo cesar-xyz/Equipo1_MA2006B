@@ -25,14 +25,14 @@ def hash_dict(d):
 # obtener direccion MAC
 mac = gma()
 
-ip_receptor = "192.168.100.28"
+ip_receptor = "127.0.0.1"
 
-# urls del CCpost_auditor_0.py
-url_entries = "https://192.168.100.28:8000/api/v1/entries/"
-url_certificates = "https://192.168.100.28:8000/api/v1/certificates/"
-url_public_keys = "https://192.168.100.28:8000/api/v1/public_keys/"
-url_auditors = "https://192.168.100.28:8000/api/v1/auditors/"
-url_outputs = "https://192.168.100.28:8000/api/v1/out_auditors/"
+# urls del CCpost_auditor_1.py
+url_entries = f"https://{ip_receptor}:8000/api/v1/entries/"
+url_certificates = f"https://{ip_receptor}:8000/api/v1/certificates/"
+url_public_keys = f"https://{ip_receptor}:8000/api/v1/public_keys/"
+url_auditors = f"https://{ip_receptor}:8000/api/v1/auditors/"
+url_outputs = f"https://{ip_receptor}:8000/api/v1/out_auditors/"
 
 headers = {
     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ if response_certificates.status_code == 200:
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     df1 = df0
     for i in range(500):
-        response_output = requests.get(url_outputs, auth=auth, verify=False)
+        response_output = requests.get(url_outputs, auth=auth, verify=False, params={"auditor": auditor_pk})
         json_output = response_output.json()
         for data in json_output:
             try:
