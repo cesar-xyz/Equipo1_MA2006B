@@ -19,7 +19,7 @@ class Entry(Paranoid):
     auditor = models.ForeignKey(
         "auditors.Auditor",
         verbose_name=_("auditor"),
-        related_name="auditors",
+        related_name="entries",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,

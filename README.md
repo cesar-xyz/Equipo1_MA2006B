@@ -55,6 +55,8 @@ Para poder utilizar este servicio de encriptación mediante curvas elípticas, s
 9. Django importamos get_asgi_application, admin, include, path 3.1 a 4.1 
 10. Pathlib importamos Path 0.6 a 1.0.1
 
+Por la parte de Django, se importaron librerías como django paranoid model en la versión 1.0.7, djangorestframework, DjangoHexadecimalField en la versión 0.0.3, django extensions en la versión 3.2.1
+
 El funcionamiento de cada librería viene explicado en el apartado anterior “Licencias”, de igual forma vienen las versiones de cada una de estas librerías con un rango de versiones anteriores a versiones mas nuevas que tienen compatibilidad con este servicio de encriptación 
 Es necesario que al descargar estas librerías la computadora que se esté utilizando estén conectadas a internet para poder importarlas dentro de Python, así mismo, para poder utilizar este servicio se necesita una buena conexión a internet ya que de esta manera es como se están mandando los archivos encriptados del centro de control hacia los auditores. 
 Para la instalación de las Raspberry, es necesario meter las trazas a estas para que de esta forma se pueda compartir la información de los auditores a el centro de control, cabe recalcar que las trazas (base de datos) tuvo un pre procesamiento antes de meterlas a las Raspberry para darles el formato correcto para el envío de información y se añaden al utilizar Python dentro de las Raspberry.
