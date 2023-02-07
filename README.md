@@ -36,6 +36,8 @@ En este sistema se utilizaron solamente librerias y software de uso público, a 
 10. Django 4.0
 11. Pathlib 1.0 
 12. Os
+13. ecdsa 0.18.0
+14. getmac 0.9.2
 
 Numpy es una librería de Python para el cálculo numérico y el análisis de datos. Pandas sirve para el manejo y análisis de estructuras de datos. Pyplot es un módulo Matplotlib que propone varias funciones sencillas para añadir elementos tales como líneas, imágenes o textos a los ejes de un gráfico. Datetime es una librería la cual permite el manejo y manipulación de fechas y horas. Hashlib nos sirve para hashear como bien el mismo nombre nos puede dar una idea, gracias al importar socket en Python podemos generar un enlace entre 2 aplicaciones para que de esta manera tengan comunicación. Time, no es lo mismo que datetime, la librería time nos sirve para retornar el valor en fracciones de la suma del sistema y el tiempo de CPU del usuario del proceso actual. Ahora, vamos a hablar de Django que es una de la librerías que más destacan dentro de este servicio, Django nos sirve para construir cualquier tipo de sitio web de manera eficiente, por otro lado, tenemos Json el cual es una librería que sirve para transferir información a través de la web y para almacenar ajustes y configuración, este, de igual forma es un formato ligero de intercambio de datos. La librería pathlib, sirve para las clases que representan rutas del sistema de archivos con semántica apropiada para diferentes sistemas operativos. Por último tenemos Os, que es una librería que provee una manera versátil de usar funcionalidades dependientes del sistema operativo.
 
