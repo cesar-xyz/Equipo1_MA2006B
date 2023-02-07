@@ -1,6 +1,17 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django_extensions.validators import HexValidator
 from paranoid_model.models import Paranoid
+
+
+# Importar la clase HexValidator para validar los datos del campo hexadecimal
+
+# Se crea una clase propia llamada HexadecimalField que hereda de la clase models.CharField
+class HexadecimalField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        # Llamar al constructor de la clase padre
+        super(HexadecimalField, self).__init__(*args, **kwargs)
+
 
 # Creamos una clase de modelo Entry que hereda de Paranoid
 class Entry(Paranoid):
@@ -27,14 +38,9 @@ class Entry(Paranoid):
     ip_receptor = models.CharField(
         _("ip_receptor"), max_length=64, blank=True, null=True
     )
-    # Un campo llamado "public_key" que hace referencia a un registro en la tabla "PublicKey"
-    public_key = models.ForeignKey(
-        "public_keys.PublicKey",
-        verbose_name=_("public_key"),
-        related_name="public_keys",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
+    # Campo que almacenará la clave pública en formato hexadecimal
+    signature = HexadecimalField(
+        _("signature"), max_length=128, validators=[HexValidator(length=128)],null=True
     )
 
     # Metadatos para la clase Entry

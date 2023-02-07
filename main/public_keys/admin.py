@@ -10,10 +10,10 @@ class PublicKeyAdmin(admin.ModelAdmin):
     # Campos que se mostrarán en la lista de objetos PublicKey en el panel de administración
     list_display = [
         "algorithm",
-        "key",
+        "public_key",
     ]
     # Campos en los que se buscará al filtrar objetos PublicKey en el panel de administración
     search_fields = [
-        "key",
+        "public_key",
         "algorithm",
     ]

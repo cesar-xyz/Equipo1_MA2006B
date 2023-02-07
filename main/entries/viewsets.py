@@ -20,7 +20,7 @@ class EntryViewSet(viewsets.ModelViewSet):
         # Obtener el nombre del auditor a partir de los datos enviados en la solicitud
         auditor = self.request.data.get('auditor')
         # Buscar el primer certificado asociado al auditor
-        certificate = Certificate.objects.filter(auditor__name=auditor).first()
+        certificate = Certificate.objects.filter(auditor__id=auditor).first()
         # Comprobar si existe un certificado asociado al auditor
         if certificate:
             # Comprobar si el certificado ha caducado

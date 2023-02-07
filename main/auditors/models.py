@@ -1,15 +1,13 @@
 # Importar las clases necesarias de los módulos de Django
 from django.db import models
 from django.utils.translation import gettext as _
-# Importar la biblioteca Paranoid
-from paranoid_model.models import Paranoid
 
 
 # Crear una clase "Auditor" que hereda de la clase "Paranoid"
-class Auditor(Paranoid):
+class Auditor(models.Model):
     # Definir el campo "name" como un campo de tipo CharField
     # con un tamaño máximo de 128 caracteres y una etiqueta de "name"
-    name = models.CharField(_("name"), max_length=128)
+    name = models.CharField(_("name"), max_length=128, unique=True)
 
     # Definir el campo "mac_address" como un campo de tipo CharField
     # con un tamaño máximo de 256 caracteres y una etiqueta de "mac address"

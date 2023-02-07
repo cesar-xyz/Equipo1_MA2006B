@@ -20,8 +20,8 @@ class PublicKey(Paranoid):
     algorithm = models.CharField(_("algorithm"), max_length=256, blank=True, null=True)
 
     # Campo que almacenará la clave pública en formato hexadecimal
-    key = HexadecimalField(
-        _("public key"), max_length=128, validators=[HexValidator(length=128)]
+    public_key = HexadecimalField(
+        _("public_key"), max_length=128, validators=[HexValidator(length=128)]
     )
 
     # Clase Meta que especifica el nombre y el nombre plural del modelo en singular y plural
