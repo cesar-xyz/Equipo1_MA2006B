@@ -4,15 +4,15 @@ import json
 import time
 
 # Libreria de los pines de la raspberry
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import pandas as pd
 import requests
 from ecdsa import SigningKey, NIST256p
 from getmac import get_mac_address as gma
 
 LED_PIN = 11
-#GPIO.setmode(GPIO.BCM)
-#GPIO.setup(LED_PIN, GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED_PIN, GPIO.OUT)
 
 
 # funcion para hashear objetos
@@ -108,10 +108,10 @@ if response_certificates.status_code == 200:
                 if data["auditor"] == auditor_pk:
                     if data["message"] == '1':
                         print("Upload")
-                        #GPIO.output(LED_PIN, GPIO.HIGH)
+                        GPIO.output(LED_PIN, GPIO.HIGH)
                     elif data["message"] == '2':
                         print("Shutdown")
-                        #GPIO.output(LED_PIN, GPIO.LOW)
+                        GPIO.output(LED_PIN, GPIO.LOW)
                     elif data["message"] == '3':
                         print("Disconnect")
                     else:
