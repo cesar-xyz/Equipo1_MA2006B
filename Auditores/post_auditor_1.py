@@ -26,7 +26,7 @@ def hash_dict(d):
 # obtener direccion MAC
 mac = gma()
 
-ip_receptor = "127.0.0.1"
+ip_receptor = "10.22.207.160"
 
 # urls del CCpost_auditor_1.py
 url_entries = f"https://{ip_receptor}:8000/api/v1/entries/"
