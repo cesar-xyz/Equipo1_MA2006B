@@ -100,7 +100,7 @@ if response_certificates.status_code == 200:
     df0 = pd.read_csv("../Archivos_trazas/auditor1.csv")
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     df1 = df0
-    for i in range(50):
+    for i in range(500):
         response_output = requests.get(url_outputs, auth=auth, verify=False)
         json_output = response_output.json()
         for data in json_output:
