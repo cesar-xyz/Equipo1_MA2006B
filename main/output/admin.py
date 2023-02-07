@@ -9,4 +9,4 @@ class OutputAdmin(admin.ModelAdmin):
     # Especificamos los campos que se mostrarán en la lista de objetos de salida
     list_display = ['auditor', 'message']
     # Especificamos los campos que se usarán para la búsqueda
-    search_fields = ['out_auditor', 'message']
+    search_fields = ['auditor', 'message']
