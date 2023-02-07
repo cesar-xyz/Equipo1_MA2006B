@@ -14,6 +14,7 @@ LED_PIN = 11
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
+
 # funcion para hashear objetos
 def hash_dict(d):
     hash_string = ""
@@ -27,7 +28,7 @@ mac = gma()
 
 ip_receptor = "192.168.100.28"
 
-# urls del CCpost_auditor_0.py
+# urls del CCpost_auditor_1.py
 url_entries = "https://192.168.100.28:8000/api/v1/entries/"
 url_certificates = "https://192.168.100.28:8000/api/v1/certificates/"
 url_public_keys = "https://192.168.100.28:8000/api/v1/public_keys/"
@@ -38,14 +39,13 @@ headers = {
     'Content-Type': 'application/json'
 }
 
-
 # autenticacion de CC
 auth = ('admin@cocoa.com', '1234')
 
 response_certificates = requests.get(url_certificates, auth=auth, verify=False)
 response_output = requests.get(url_outputs, auth=auth, verify=False)
 
-auditor_name = "Auditor 0"
+auditor_name = "Auditor 1"
 auditor_pk = 0
 publicKey_pk = 0
 algorithm = "ECDSA NIST256p"
@@ -98,7 +98,7 @@ if response_certificates.status_code == 200:
 
     # leer el documento de la base de datos de consumo
 
-    df0 = pd.read_csv("../Archivos_trazas/auditor0.csv")
+    df0 = pd.read_csv("../Archivos_trazas/auditor1.csv")
     df0['auditor'].replace(df0['auditor'][0], auditor_pk, inplace=True)
     df1 = df0
     for i in range(10):
