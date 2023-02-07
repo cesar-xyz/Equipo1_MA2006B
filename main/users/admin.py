@@ -1,3 +1,5 @@
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import User
 
 # Registra CustomUserAdmin como el panel de administración para el modelo User
